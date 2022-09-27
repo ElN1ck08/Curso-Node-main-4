@@ -7,19 +7,19 @@ const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/err
 const app = express();
 const port = 3000;
 
-app.use(express.json());
+// app.use(express.json());
 
-const whitelist = ['http://localhost:8080', 'http://localhost:5500', 'http://127.0.0.1:5500', 'http://localhost:3000/api/v1/products', 'http://localhost:3000' ];
-const options = {
-  origin: (origin, callback) => {
-    if (whitelist.includes(origin)) {
-      callback(null, true);
-    } else{
-      callback(new Error('No permitido'))
-    }
-  }
-}
-app.use(cors(options));
+// const whitelist = ['http://localhost:8080', 'http://localhost:5500', 'http://127.0.0.1:5500', 'http://localhost:3000/api/v1/products', 'http://localhost:3000' ];
+// const options = {
+//   origin: (origin, callback) => {
+//     if (whitelist.includes(origin)) {
+//       callback(null, true);
+//     } else{
+//       callback(new Error('No permitido'))
+//     }
+//   }
+// }
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hola mi server en express');

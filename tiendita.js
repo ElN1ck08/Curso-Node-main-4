@@ -1,26 +1,7 @@
 // BOTONES 
-let pagina = 1 
-const btnAnt = document.getElementById(`btnAnterior`)
-const btnSig = document.getElementById(`btnSiguiente`)
-
-btnSig.addEventListener(`click`, ()=>{
-    if (pagina < 10 ){
-        pagina += 1 
-        listProducts()
-    } 
-   
-})
-
-btnAnt.addEventListener(`click`, ()=>{
-    if (pagina > 1 ){
-        pagina -= 1
-        listProducts()
-    }
-})
-
 
 const listProducts = async () => {
-  const response = await fetch(`http://localhost:3000/api/v1/products${pagina}`);
+  const response = await fetch(`http://localhost:3000/api/v1/products`);
 
   let tableBody = ``;
   const products = await response.json();
